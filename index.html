@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMOS Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>HOMOS Wallet</h1>
+        <button onclick="logout()">تسجيل الخروج</button>
+    </header>
+
+    <main id="main-content">
+        <div id="login-section" class="section">
+            <h2>تسجيل الدخول</h2>
+            <input type="email" id="login-email" placeholder="الإيميل">
+            <input type="password" id="login-password" placeholder="كلمة المرور">
+            <button onclick="login()">دخول</button>
+            <p id="login-error" class="error"></p>
+        </div>
+
+        <div id="user-section" class="section" style="display:none;">
+            <h2>مرحباً بك</h2>
+            <p id="user-email"></p>
+            <p>الرصيد الحالي: <span id="balance">0</span> جنيه</p>
+            <button onclick="showDeposit()">إيداع</button>
+            <button onclick="showWithdraw()">سحب</button>
+            <button onclick="showTransfer()">تحويل</button>
+        </div>
+
+        <div id="deposit-section" class="section" style="display:none;">
+            <h2>الإيداع</h2>
+            <p>قم بالتحويل لهذا الرقم: <span id="deposit-phone">01012265953</span> <button onclick="copyPhone()">نسخ</button></p>
+            <input type="number" id="deposit-amount" placeholder="المبلغ المحول">
+            <input type="text" id="deposit-from" placeholder="رقم الهاتف المحول منه">
+            <input type="file" id="deposit-screenshot">
+            <button onclick="sendDeposit()">تأكيد الإيداع</button>
+            <button onclick="back()">رجوع</button>
+        </div>
+
+        <div id="withdraw-section" class="section" style="display:none;">
+            <h2>السحب</h2>
+            <input type="number" id="withdraw-amount" placeholder="المبلغ المراد سحبه">
+            <input type="text" id="withdraw-phone" placeholder="رقم الهاتف المراد التحويل له">
+            <button onclick="sendWithdraw()">تأكيد السحب</button>
+            <button onclick="back()">رجوع</button>
+        </div>
+
+        <div id="transfer-section" class="section" style="display:none;">
+            <h2>تحويل الرصيد</h2>
+            <input type="email" id="transfer-email" placeholder="الإيميل المراد التحويل له">
+            <input type="number" id="transfer-amount" placeholder="المبلغ المراد تحويله">
+            <button onclick="transferMoney()">تأكيد التحويل</button>
+            <button onclick="back()">رجوع</button>
+        </div>
+
+        <div id="admin-section" class="section" style="display:none;">
+            <h2>منطقة المدير</h2>
+            <input type="email" id="admin-email" placeholder="إيميل المستخدم">
+            <input type="number" id="admin-amount" placeholder="المبلغ للإضافة">
+            <button onclick="addBalance()">إضافة رصيد</button>
+            <button onclick="back()">رجوع</button>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
